@@ -1,12 +1,13 @@
 #pragma once
 #include <vector>
 #include <span>
+#include <stdfloat>
 
-double power(double base,int exponent);
-std::vector<double> takeDerivative(std::span<double> polynomial);
-double evalFunction(std::span<double> function,double inputVal);
-double findFlipPoint(double startPoint,int goRight, std::span<double> function);
-double findRoot2TP(double turnP1,double turnP2, std::span<double> function);
-double findRootOfLinear(std::span<double> linearFunc);
-std::vector<double> findRootsFromTPs(std::span<double> turningPoints, std::span<double> function);
-std::vector<double> getRootsFromDerivList(std::span<std::vector<double>> polylist);
+std::float128_t power(std::float128_t base,int exponent);
+std::vector<std::float128_t> takeDerivative(std::span<std::float128_t> polynomial);
+std::float128_t evalFunction(std::span<std::float128_t> function,std::float128_t inputVal);
+std::float128_t findFlipPoint(std::float128_t startPoint,int goRight, std::span<std::float128_t> function);
+std::float128_t findRoot2TP(std::float128_t turnP1,std::float128_t turnP2, std::span<std::float128_t> function);
+std::float128_t findRootOfLinear(std::span<std::float128_t> linearFunc);
+std::vector<std::float128_t> findRootsFromTPs(std::span<std::float128_t> turningPoints, std::span<std::float128_t> function);
+std::vector<std::float128_t> getRootsFromDerivList(std::span<std::vector<std::float128_t>> polylist);
