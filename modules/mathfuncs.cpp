@@ -7,8 +7,8 @@
 
 const std::float128_t g_nanval = (0.0/0.0); //can't be constexpr for some reason
 constexpr std::float128_t g_upperSearchLimit {1e100};
-constexpr std::float128_t g_lowerPrecisionValue {1e-10};
-constexpr std::float128_t g_sameNumberLimit {1e-6};
+constexpr std::float128_t g_lowerPrecisionValue {1e-15};
+constexpr std::float128_t g_sameNumberLimit {1e-7};
 
 std::float128_t getSign(std::float128_t numberToCheck)
 {
@@ -135,7 +135,7 @@ std::vector<std::float128_t> findRootsFromTPs(std::span<std::float128_t> turning
     }}
     else
     {
-        constexpr std::float128_t randomPoint {1000000000.0}; 
+        constexpr std::float128_t randomPoint {0.0}; 
         std::float128_t potentialTP1 = findFlipPoint(randomPoint,-1,function);
         std::float128_t potentialTP2 = findFlipPoint(randomPoint,1,function);
         if (!std::isnan(potentialTP1))
