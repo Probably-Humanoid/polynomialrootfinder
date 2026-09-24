@@ -44,23 +44,32 @@ int getPolySize()
     return polySize+1;
 }
 
+std::vector<double> getFirstPolynomial(int size)
+{
+    std::vector<double> poly (size);
+
+    for (int i=size-1;i>=0;i--)
+    {
+        std::cout << "x^" << i << " = ";
+        std::cin >> poly[i];
+    }
+    return poly;
+}
+
 int main()
 {
 
     const int polySize = getPolySize(); // highest degree + 1
     std::vector<std::vector<double>> polysCollection (polySize);
-    std::vector<double> poly (polySize);
-    //poly = {4, 3, 5, 7, 4}; // in reverse if you want readability
+    // polys collection is a table of tables, where an element at index 'i' is a polynomial of degree i
+    // a table storing a polynomial stores it in reverse order, where a number 'n' at index 'i' translates to n*x^i
 
-    for (int i=polySize-1;i>=0;i--)
-    {
-        std::cin >> poly[i];
-    }
-    polysCollection[polySize-1] = poly;
+    const std::vector<double> firstPoly = getFirstPolynomial(polySize);
+    polysCollection[polySize-1] = firstPoly;
     
     
 
-    printPolynomial(poly);
+    printPolynomial(firstPoly);
 
     const auto start = std::chrono::high_resolution_clock::now();
 
