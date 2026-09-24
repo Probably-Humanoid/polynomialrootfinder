@@ -5,10 +5,10 @@
 #include <bitset>
 #include <cmath>
 
-const double nanval = (0.0/0.0);
-constexpr double upperSearchLimit {1e100};
-constexpr double lowerPrecisionValue {1e-10};
-constexpr double sameNumberLimit {1e-6};
+const double g_nanval = (0.0/0.0); //can't be constexpr for some reason
+constexpr double g_upperSearchLimit {1e100};
+constexpr double g_lowerPrecisionValue {1e-10};
+constexpr double g_sameNumberLimit {1e-6};
 
 double getSign(double numberToCheck)
 {
@@ -18,7 +18,7 @@ double getSign(double numberToCheck)
 bool sameNumber(double num1, double num2)
 {
     const double difference {num1-num2};
-    if (difference<sameNumberLimit && difference>-sameNumberLimit)
+    if (difference<g_sameNumberLimit && difference>-g_sameNumberLimit)
         return true;
     else
         return false;
@@ -67,8 +67,8 @@ double findFlipPoint(double startPoint,int goRight, std::span<double> function)
     {
         stepVal*=stepSize;
         currentPointEval = evalFunction(function,startPoint+stepVal);
-        if (stepVal > upperSearchLimit or stepVal < -upperSearchLimit)
-            return nanval;
+        if (stepVal > g_upperSearchLimit or stepVal < -g_upperSearchLimit)
+            return g_nanval;
     }
     return startPoint+(stepVal);
 }
@@ -81,7 +81,7 @@ double findRoot2TP(double turnP1,double turnP2, std::span<double> function)
     {
         const double halfwayPoint = (turnP1 + turnP2)/2;
         const double hpValue = evalFunction(function,halfwayPoint);
-        if (hpValue < lowerPrecisionValue && hpValue > -lowerPrecisionValue)
+        if (hpValue < g_lowerPrecisionValue && hpValue > -g_lowerPrecisionValue)
             return halfwayPoint;
         if (hpValue*startingSign>0)
             turnP1 = halfwayPoint;
