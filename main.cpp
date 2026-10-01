@@ -1,4 +1,5 @@
 #include "mathfuncs.h"
+#include "bignumber.h"
 #include <iostream>
 #include <vector>
 #include <chrono>
@@ -59,6 +60,7 @@ std::vector<double> getFirstPolynomial(int size)
 int main()
 {
 
+    /*
     const int polySize = getPolySize(); // highest degree + 1
     std::vector<std::vector<double>> polysCollection (polySize);
     // polys collection is a table of tables, where an element at index 'i' is a polynomial of degree i
@@ -88,6 +90,12 @@ int main()
     
     //std::cout << "first root is at: " << rootsOfQuad[0] << '\n';
     //std::cout << "second root is at: " << rootsOfQuad[1] << '\n';
+    */
+
+    vector<singleUnit> num1Whole = {00000011000};
+    vector<singleUnit> num2Whole = {00000000001};
+    BigNumber testNum = (num1Whole);
+    testNum.doubleNum();
 
     return 0;
 }

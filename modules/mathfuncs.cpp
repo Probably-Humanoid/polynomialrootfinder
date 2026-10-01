@@ -24,7 +24,7 @@ bool sameNumber(double num1, double num2)
         return false;
 }
 
-double power(double base,int exponent)
+double power(const double& base,const int& exponent)
 {
     double returnNum = base;
     for(int i=1; i<exponent; i++) {

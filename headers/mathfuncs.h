@@ -2,7 +2,7 @@
 #include <vector>
 #include <span>
 
-double power(double base,int exponent);
+double power(const double& base,const int& exponent);
 std::vector<double> takeDerivative(std::span<double> polynomial);
 double evalFunction(std::span<double> function,double inputVal);
 double findFlipPoint(double startPoint,int goRight, std::span<double> function);
