@@ -92,8 +92,8 @@ int main()
     //std::cout << "second root is at: " << rootsOfQuad[1] << '\n';
     */
 
-    vector<singleUnit> num1Whole = {00000011000};
-    vector<singleUnit> num2Whole = {00000000001};
+    numStoreType num1Whole = {00000011000};
+    numStoreType num2Whole = {00000000001};
     BigNumber testNum = (num1Whole);
     testNum.doubleNum();
 

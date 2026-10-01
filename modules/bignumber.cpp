@@ -4,12 +4,6 @@
 #include <bitset>
 #include <cmath>
 
-
-
-
-
-
-
 static bool shiftAndCarry(const bool& oldCarry,singleUnit& setToShift)
 {
     const bool carryNext {setToShift.test(finalBit)};
@@ -101,7 +95,7 @@ void BigNumber::expandDecimal(const int& newSize)
     }
 
 //BigNumber::BigNumber() = default;
-BigNumber::BigNumber(vector<singleUnit> wholePart, vector<singleUnit> decimalPart, bool sign, bool isNaN, bool isInf)
+BigNumber::BigNumber(numStoreType wholePart, numStoreType decimalPart, bool sign, bool isNaN, bool isInf)
 : m_wholePart {wholePart}
 , m_decimalPart {decimalPart}
 , m_extraInfo {0b00000000}
