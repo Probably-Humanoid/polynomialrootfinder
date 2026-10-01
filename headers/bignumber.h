@@ -11,10 +11,14 @@ constexpr int bitsetSize {64};
 constexpr int finalBit {bitsetSize-1};
 
 using singleUnit = bitset<bitsetSize>;
+using numStoreType = vector<singleUnit>;
 
 
 constexpr singleUnit emptyBitset {0b0000000000000000000000000000000000000000000000000000000000000000};
+constexpr singleUnit bitsetVal1 {0b00000000000000000000000000000000000000000000000000000000000000001};
 const vector<singleUnit> emptyNumPart {vector<singleUnit>{emptyBitset}};
+
+const double doubleNaN {0.0/0.0};
 
 
 

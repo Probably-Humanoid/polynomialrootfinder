@@ -5,18 +5,9 @@
 #include <cmath>
 
 
-using std::bitset;
-using std::vector;
 
-//constexpr int bitsetSize {64};
-//constexpr int finalBit {bitsetSize-1};
 
-using singleUnit = bitset<bitsetSize>;
 
-//constexpr singleUnit emptyBitset {0b0000000000000000000000000000000000000000000000000000000000000000};
-constexpr singleUnit bitsetVal1 {0b00000000000000000000000000000000000000000000000000000000000000001};
-//const vector<singleUnit> emptyNumPart {vector<singleUnit>{emptyBitset}};
-const double doubleNaN {0.0/0.0};
 
 
 static bool shiftAndCarry(const bool& oldCarry,singleUnit& setToShift)
