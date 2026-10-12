@@ -14,9 +14,10 @@ using singleUnit = std::bitset<bitsetSize>;
 using numStoreType = std::vector<singleUnit>;
 
 
-constexpr singleUnit emptyBitset {0b0000000000000000000000000000000000000000000000000000000000000000};
-constexpr singleUnit bitsetVal1 {0b00000000000000000000000000000000000000000000000000000000000000001};
-const numStoreType emptyNumPart {numStoreType{emptyBitset}};
+constexpr singleUnit emptyBitset {0x0000000000000000};
+constexpr singleUnit bitsetVal1 {0x0000000000000001};
+constexpr singleUnit bitsetValmin1 {0x8000000000000000};
+const numStoreType emptyNumPart {numStoreType(0)};
 
 const double doubleNaN {0.0/0.0};
 
@@ -28,12 +29,14 @@ private:
     numStoreType m_wholePart{};
     numStoreType m_decimalPart{};
     std::bitset<8> m_extraInfo {};
-    
+
     void shrinkAll();
 
-    void expandWhole(const int& newSize);
+    void matchSizes(BigNumber& x);
 
-    void expandDecimal(const int& newSize);
+    void twoCompliment();
+
+    bool checkIfZero();
 
 public:
     //BigNumber();
@@ -41,7 +44,11 @@ public:
 
     void doubleNum();
 
+    void increment();
+
     void addNum(BigNumber& x);
+
+    
 };
 
 

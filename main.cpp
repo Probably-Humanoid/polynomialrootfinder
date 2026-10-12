@@ -92,10 +92,23 @@ int main()
     //std::cout << "second root is at: " << rootsOfQuad[1] << '\n';
     */
 
-    numStoreType num1Whole = {00000011000};
-    numStoreType num2Whole = {00000000001};
-    BigNumber testNum = (num1Whole);
+    
+
+   
+
+    numStoreType num1Whole = {0x0000000000000001};
+    numStoreType num2Whole = {0x0000000000000002};
+    numStoreType num1decimal = {0xC000000000000000,emptyBitset,emptyBitset};
+    BigNumber testNum {num1Whole,{emptyBitset}};
+    BigNumber num2 {num2Whole,{emptyBitset}};
+
+    const auto start = std::chrono::high_resolution_clock::now();
+
+    testNum.addNum(num2);
+    testNum.doubleNum();
     testNum.doubleNum();
 
+
+    printExecutionTime(start);
     return 0;
 }
